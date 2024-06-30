@@ -24,24 +24,38 @@ let months = [
   "December",
 ];
 let search = document.getElementById("search");
+let loading = document.getElementById("loading");
+let contentData = document.getElementById("contentData");
 async function getWeather(cityName) {
+  loading.style.display = "flex";
+  contentData.style.display = "none";
   let weatherResponse = await fetch(
     `https://api.weatherapi.com/v1/forecast.json?key=2529bff8e9bd4c7ca4b212322242806&q=${cityName}&days=7`,
   );
-  try {
-    let weatherData = await weatherResponse.json();
-    return weatherData;
-  } catch (error) {
-    console.log("error");
+  let weatherData = await weatherResponse.json();
+  if (weatherResponse.status == 200) {
+    setTimeout(() => {
+      loading.style.display = "none";
+      contentData.style.display = "block";
+    }, 1000);
   }
+  console.log(weatherData);
+  return weatherData;
 }
-search.addEventListener("input", function () {
-  if (search.value.length >= 3) {
-    startApp(search.value);
-  } else {
-    getLocation();
-  }
+let searchTime;
+window.addEventListener("DOMContentLoaded", () => {
+  search.addEventListener("input", function () {
+    clearTimeout(searchTime); // <--- The solution is here
+    searchTime = setTimeout(() => {
+      if (search.value.length >= 3) {
+        startApp(search.value);
+      } else {
+        getLocation();
+      }
+    }, 1000);
+  });
 });
+
 function displayWeatherToday(data) {
   cartona = "";
   cartona += `
@@ -420,10 +434,11 @@ function getLocation() {
     })();
   }
   function error() {
-    startApp("cairo");
+    getLocation();
   }
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(current, error, options);
   }
 }
+startApp("cairo");
 getLocation();

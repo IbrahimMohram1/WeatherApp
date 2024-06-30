@@ -28,29 +28,38 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <div class="container my-5">
-      <div class="row">
-        <div class="col-md-8 m-auto">
-          <form class="find-location position-relative">
-            <input
-              class="input-data"
-              type="search"
-              placeholder="Find Your Location ... "
-              id="search"
-            />
-            <input
-              class="input-button"
-              value="Find"
-              type="button"
-              id="submit"
-            />
-          </form>
-        </div>
-      </div>
+    <div
+      id="loading"
+      class="container justify-content-center align-items-center"
+    >
+      <div class="loader"></div>
     </div>
 
-    <div class="container">
-      <div id="myRow" class="row"></div>
+    <div id="contentData">
+      <div class="container my-5">
+        <div class="row">
+          <div class="col-md-8 m-auto">
+            <form class="find-location position-relative">
+              <input
+                class="input-data"
+                type="search"
+                placeholder="Find Your Location ... "
+                id="search"
+              />
+              <input
+                class="input-button"
+                value="Find"
+                type="button"
+                id="submit"
+              />
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <div class="container">
+        <div id="myRow" class="row"></div>
+      </div>
     </div>
 
     <script
