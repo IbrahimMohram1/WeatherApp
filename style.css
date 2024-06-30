@@ -12,7 +12,6 @@ body {
   line-height: 1.5;
 }
 .input-data {
-  position: relative;
   background-color: #1e202b;
   width: 100%;
   color: #fff;
@@ -22,17 +21,6 @@ body {
   border: 1px solid #fff;
 }
 form:focus {
-  border: none;
-}
-.input-button {
-  position: absolute;
-  top: 5px;
-  right: 10px;
-  bottom: 5px;
-  padding: 0 30px;
-  border-radius: 30px;
-  background-color: #566970;
-  color: #fff;
   border: none;
 }
 .inner-1 {
