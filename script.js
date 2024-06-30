@@ -24,7 +24,6 @@ let months = [
   "December",
 ];
 let search = document.getElementById("search");
-
 async function getWeather(cityName) {
   let weatherResponse = await fetch(
     `https://api.weatherapi.com/v1/forecast.json?key=2529bff8e9bd4c7ca4b212322242806&q=${cityName}&days=7`,
@@ -56,11 +55,10 @@ function displayWeatherToday(data) {
               <h1 id="degreeNow" class="text-white h6"> ${
                 data.current.temp_c
               } °C</h1>
-              <img
+              <img alt="weatherIcon"
                 id="iconNow"
                 src="${data.current.condition.icon}"
                 class="w-25"
-                srcset=""
               />
             </div>
             <p id="statusNow" class="text-center">${
@@ -84,7 +82,7 @@ function displayWeatherToday(data) {
             </div>
           </div>
           <hr class="text-white" />
-          <h6 class="py-3">Today At :</h6>
+          <h4 class="py-3 h6">Today At :</h4>
           <div class="forecast">
             <div
               class="forecastToday my-3 inner d-flex justify-content-between align-items-center"
@@ -311,7 +309,7 @@ ${[
             </div>
           </div>
           <hr class="text-white">
-          <h4 class="py-3 ms-3">6 Days Forecast :</h4>
+          <h6 class="py-3 ms-3 h4">6 Days Forecast :</h6>
             <div class="row mx-3 gy-3">
       <div class="col-md-4 ">
                 <div class="inner rounded-3 p-2 ">
@@ -319,7 +317,7 @@ ${[
           days[new Date(data.forecast.forecastday[1].date).getDay()]
         }</p>
         <div class="d-flex align-items-center justify-content-between mx-2">
-          <img src="${
+          <img alt="weatherIcon" src="${
             data.forecast.forecastday[1].day.condition.icon
           }" class="w-25" />
           <p>${data.forecast.forecastday[1].day.maxtemp_c} °C</p>
@@ -332,7 +330,7 @@ ${[
           days[new Date(data.forecast.forecastday[2].date).getDay()]
         }</p>
         <div class="d-flex align-items-center justify-content-between mx-2">
-          <img src="${
+          <img alt="weatherIcon" src="${
             data.forecast.forecastday[2].day.condition.icon
           }" class="w-25" />
           <p>${data.forecast.forecastday[2].day.maxtemp_c} °C</p>
@@ -345,7 +343,7 @@ ${[
           days[new Date(data.forecast.forecastday[3].date).getDay()]
         }</p>
         <div class="d-flex align-items-center justify-content-between mx-2">
-          <img src="${
+          <img alt="weatherIcon" src="${
             data.forecast.forecastday[3].day.condition.icon
           }" class="w-25" />
           <p>${data.forecast.forecastday[3].day.maxtemp_c} °C</p>
@@ -358,7 +356,7 @@ ${[
           days[new Date(data.forecast.forecastday[4].date).getDay()]
         }</p>
         <div class="d-flex align-items-center justify-content-between mx-2">
-          <img src="${
+          <img alt="weatherIcon" src="${
             data.forecast.forecastday[4].day.condition.icon
           }" class="w-25" />
           <p>${data.forecast.forecastday[4].day.maxtemp_c} °C</p>
@@ -371,7 +369,7 @@ ${[
           days[new Date(data.forecast.forecastday[5].date).getDay()]
         }</p>
         <div class="d-flex align-items-center justify-content-between mx-2">
-          <img src="${
+          <img alt="weatherIcon" src="${
             data.forecast.forecastday[5].day.condition.icon
           }" class="w-25" />
           <p>${data.forecast.forecastday[5].day.maxtemp_c} °C</p>
@@ -384,7 +382,7 @@ ${[
           days[new Date(data.forecast.forecastday[6].date).getDay()]
         }</p>
         <div class="d-flex align-items-center justify-content-between mx-2">
-          <img src="${
+          <img alt="weatherIcon" src="${
             data.forecast.forecastday[6].day.condition.icon
           }" class="w-25" />
           <p>${data.forecast.forecastday[6].day.maxtemp_c} °C</p>
