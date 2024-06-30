@@ -38,6 +38,12 @@ async function getWeather(cityName) {
       loading.style.display = "none";
       contentData.style.display = "block";
     }, 1000);
+  } else if (weatherResponse.status != 200) {
+    setTimeout(() => {
+      loading.style.display = "none";
+      contentData.style.display = "block";
+      getLocation();
+    }, 1000);
   }
   console.log(weatherData);
   return weatherData;
@@ -45,7 +51,6 @@ async function getWeather(cityName) {
 let searchTime;
 window.addEventListener("DOMContentLoaded", () => {
   search.addEventListener("input", function () {
-    clearTimeout(searchTime); // <--- The solution is here
     searchTime = setTimeout(() => {
       if (search.value.length >= 3) {
         startApp(search.value);
