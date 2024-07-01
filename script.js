@@ -57,7 +57,7 @@ window.addEventListener("DOMContentLoaded", () => {
       } else {
         getLocation();
       }
-    }, 1000);
+    }, 2000);
   });
 });
 
@@ -265,8 +265,7 @@ ${[
                 <div class="d-flex justify-content-between">
                   <p>pressure</p>
                   <div>
-                    <i class="fa-solid fa-temperature-three-quarters"></i>
-                  </div>
+<i class="bi bi-compass"></i>                  </div>
                 </div>
                 <p class="text-center m-1">${data.current.pressure_in} in</p>
               </div>
